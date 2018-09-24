@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import review_detail_view, review_list_view
+from .views import project_detail_view, project_list_view
 
 urlpatterns = [
-    path('', review_list_view, name='review_list'),
-    path('<int:pk>', review_detail_view, name='review_detail')
+    path('', project_list_view, name='project_list'),
+    path('<int:pk>', project_detail_view, name='project_detail')
 ]

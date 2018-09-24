@@ -1,20 +1,20 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
-from .models import Review
+from .models import Project
 
 
-def review_list_view(request):
-    reviews = get_list_or_404(Review)
+def project_list_view(request):
+    projects = get_list_or_404(Project)
     context = {
-        'reviews': reviews
+        'projects': projects
     }
 
-    return render(request, 'reviews/review_list.html', context)
+    return render(request, 'project/project.html', context)
 
 
-def review_detail_view(request, pk=None):
-    review = get_object_or_404(Review, pk)
+def project_detail_view(request, pk=None):
+    project = get_object_or_404(Project, pk)
     context = {
-        'review': review
+        'project': project
     }
 
-    return render(request, 'reviews/review_detail.html', context)
+    return render(request, 'projects/project_detail.html', context)
