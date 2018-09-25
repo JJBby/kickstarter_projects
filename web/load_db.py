@@ -5,7 +5,7 @@ import pandas as pd
 import os
 
 
-path = './assets/sample.csv'
+path = './assets/ks-projects-201801.csv'
 
 # with open(path, 'rb') as f:
 #   contents = f.read()
@@ -15,30 +15,35 @@ path = './assets/sample.csv'
 # import pdb; pdb.set_trace()
 # csv_data = pd.read_csv(contents)
 # import pdb; pdb.set_trace()
-csv_data = pd.read_csv(path, encoding='Windows-1252')
+csv_data = pd.read_csv(path, error_bad_lines=False)
 df = pd.DataFrame(csv_data)
-# import pdb; pdb.set_trace()
+
 
 # Adjust NaN values in each column, and generally clean data set
 # df['ID'] = df['Unnamed: 0'] + 1
-del df['Unnamed: 13']
-del df['Unnamed: 14']
-del df['Unnamed: 15']
-del df['Unnamed: 16']
+# del df['Unnamed: 13']
+# del df['Unnamed: 14']
+# del df['Unnamed: 15']
+# del df['Unnamed: 16']
 
-# df['ID'] = df['ID '].fillna('unknown')
+
+df['kickstarter_id'] = df['ID'].fillna('unknown')
+del df['ID']
 df['name'] = df['name'].fillna('unknown')
 df['category'] = df['category'].fillna('unknown')
 df['main_category'] = df['main_category'].fillna('unknown')
 df['currency'] = df['currency'].fillna('unknown')
 df['deadline'] = df['deadline'].fillna('unknown')
-df['goal'] = df['goal'].fillna('unknown')
+df['goal'] = df['goal'].fillna(0.0)
 df['launched'] = df['launched'].fillna('unknown')
 df['pledged'] = df['pledged'].fillna(0.0)
 df['state'] = df['state'].fillna('unknown')
 df['backers'] = df['backers'].fillna('unknown')
 df['country'] = df['country'].fillna('unknown')
-df['usd_pledged'] = df['usd_pledged'].fillna('unknown')
+df['usd_pledged'] = df['usd_pledged'].fillna(0.0)
+df['usd_pledged_real'] = df['usd_pledged_real'].fillna(0.0)
+df['usd_goal_real'] = df['usd_goal_real'].fillna(0.0)
+
 
 
 db_protocol = 'postgresql'

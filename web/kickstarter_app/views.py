@@ -1,14 +1,21 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.core.paginator import Paginator
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
+from django.views.decorators.cache import cache_page
+from django.conf import settings
 from .models import Project
 
 
+CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
+
+
+
 def project_list_view(request):
-    projects = get_list_or_404(Project)
-    # paginator = Paginator(projects, 50)
-    #
-    # page = request.GET.get('page')
-    # something = paginator.get_page(page)
+    projects_query = get_list_or_404(Project)
+    paginator = Paginator(projects_query, 30)
+
+    page = request.GET.get('page')
+    projects = paginator.get_page(page)
 
     context = {
         'projects': projects
@@ -18,7 +25,7 @@ def project_list_view(request):
 
 
 def project_detail_view(request, pk=None):
-    project = get_object_or_404(Project, pk)
+    project = get_object_or_404(Project, id=pk)
     context = {
         'project': project
     }
