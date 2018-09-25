@@ -12,6 +12,7 @@ libsass = "*"
 django-compressor = "*"
 django-sass-processor = "*"
 "psycopg2-binary" = "*"
+django-redis = "*"
 
 [dev-packages]
 
