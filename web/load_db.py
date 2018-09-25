@@ -26,7 +26,8 @@ del df['Unnamed: 14']
 del df['Unnamed: 15']
 del df['Unnamed: 16']
 
-# df['ID'] = df['ID '].fillna('unknown')
+df['id'] = df['ID'].fillna('unknown')
+del df['ID']
 df['name'] = df['name'].fillna('unknown')
 df['category'] = df['category'].fillna('unknown')
 df['main_category'] = df['main_category'].fillna('unknown')
@@ -52,4 +53,4 @@ engine = create_engine('{}://{}:{}@{}:5432/{}'.format(
     db_protocol, db_user, db_password, db_host, db_name
 ))
 
-df.to_sql("kickstarter_projects", engine, if_exists='append', index=False)
+df.to_sql("kickstarter_app_project", engine, if_exists='append', index=False)
