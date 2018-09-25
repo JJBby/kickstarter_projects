@@ -26,7 +26,7 @@ del df['Unnamed: 14']
 del df['Unnamed: 15']
 del df['Unnamed: 16']
 
-df['id'] = df['ID'].fillna('unknown')
+df['kickstarter_id'] = df['ID'].fillna('unknown')
 del df['ID']
 df['name'] = df['name'].fillna('unknown')
 df['category'] = df['category'].fillna('unknown')

@@ -12,7 +12,7 @@ def project_list_view(request):
 
 
 def project_detail_view(request, pk=None):
-    project = get_object_or_404(Project, pk)
+    project = get_object_or_404(Project, id=pk)
     context = {
         'project': project
     }

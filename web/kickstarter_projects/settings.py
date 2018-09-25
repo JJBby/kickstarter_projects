@@ -130,7 +130,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 SASS_PROCESSOR_ROOT = STATIC_ROOT
-
+SASS_PROCESSOR_ENABLED = os.environ.get('DEBUG', False)
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',

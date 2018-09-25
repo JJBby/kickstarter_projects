@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Project(models.Model):
+    kickstarter_id = models.IntegerField()
     name = models.CharField(max_length=1024)
     category = models.CharField(max_length=1024)
     main_category = models.CharField(max_length=1024)
@@ -18,3 +19,5 @@ class Project(models.Model):
 
     def __str__(self):
         return '{}'.format(self.name)
+
+
