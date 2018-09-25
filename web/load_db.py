@@ -17,7 +17,7 @@ path = './assets/sample.csv'
 # import pdb; pdb.set_trace()
 csv_data = pd.read_csv(path, encoding='Windows-1252')
 df = pd.DataFrame(csv_data)
-import pdb; pdb.set_trace()
+# import pdb; pdb.set_trace()
 
 # Adjust NaN values in each column, and generally clean data set
 # df['ID'] = df['Unnamed: 0'] + 1
@@ -52,4 +52,4 @@ engine = create_engine('{}://{}:{}@{}:5432/{}'.format(
     db_protocol, db_user, db_password, db_host, db_name
 ))
 
-df.to_sql("kickstarter_projects", engine, if_exists='append', index=False)
+df.to_sql("kickstarter_app_project", engine, if_exists='append', index=False)
