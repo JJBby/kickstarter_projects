@@ -1,6 +1,6 @@
 # This is the script used during lecture as a demo for loading data from CSV to a DB
 from sqlalchemy import create_engine
-import chardet
+# import chardet
 import pandas as pd
 import os
 
@@ -10,8 +10,8 @@ path = './assets/sample.csv'
 # with open(path, 'rb') as f:
 #   contents = f.read()
 
-with open(path, 'rb') as rawdata:
-    result = chardet.detect(rawdata.read(10000))
+# with open(path, 'rb') as rawdata:
+#     result = chardet.detect(rawdata.read(10000))
 # import pdb; pdb.set_trace()
 # csv_data = pd.read_csv(contents)
 # import pdb; pdb.set_trace()
