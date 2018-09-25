@@ -9,7 +9,7 @@ from .models import Project
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
-
+@cache_page(CACHE_TTL)
 def project_list_view(request):
     projects_query = get_list_or_404(Project)
     paginator = Paginator(projects_query, 30)
