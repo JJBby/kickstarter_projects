@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Project(models.Model):
+    kickstarter_id = models.IntegerField()
     name = models.CharField(max_length=1024)
     category = models.CharField(max_length=1024)
     main_category = models.CharField(max_length=1024)
@@ -14,7 +15,11 @@ class Project(models.Model):
     backers = models.CharField(max_length=1024)
     country = models.CharField(max_length=1024)
     usd_pledged = models.FloatField()
+    usd_pledged_real = models.FloatField()
+    usd_goal_real = models.FloatField()
     # winery = models.CharField(max_length=1024)
 
     def __str__(self):
         return '{}'.format(self.name)
+
+
